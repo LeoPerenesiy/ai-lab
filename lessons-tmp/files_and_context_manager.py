@@ -1,20 +1,3 @@
-# import os
-#
-# print("Рабочая директория:", os.getcwd())
-# print("Файлы в директории:", os.listdir())
-
-
-# file = open('data.txt')
-# try:
-#     print(file.read())
-# finally:
-#     file.close()
-
-# Через with закрывает файл автоматически
-# with open('data.txt') as file:
-#     print(file.read())
-
-
 class FileOpener:
     def __init__(self, file_path: str, mode:str):
         self.file_path = file_path

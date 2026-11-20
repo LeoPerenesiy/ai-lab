@@ -26,6 +26,10 @@ class TaskUpdateSchema(BaseModel):
     title: str | None = None
     completed: bool
 
+@app.get("/", status_code=status.HTTP_200_OK)
+def start_page():
+    return 'FAST API'
+
 @app.get("/tasks", status_code=status.HTTP_200_OK)
 def read_tasks() -> list[TaskSchema]:
     return tasks
