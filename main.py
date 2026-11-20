@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from uuid import uuid4
@@ -22,15 +22,40 @@ class TaskSchema(BaseModel):
 class TaskCreateSchema(BaseModel):
     title: str
 
-@app.get("/tasks")
+class TaskUpdateSchema(BaseModel):
+    title: str | None = None
+    completed: bool
+
+@app.get("/tasks", status_code=status.HTTP_200_OK)
 def read_tasks() -> list[TaskSchema]:
     return tasks
 
-@app.post("/tasks")
+@app.post("/tasks", status_code=status.HTTP_201_CREATED)
 def create_task(payload: TaskCreateSchema) -> TaskSchema:
     task = TaskSchema(id=str(uuid4()), title=payload.title, completed=False)
     tasks.append(task)
     return task
+
+@app.patch("/tasks/{task_id}", status_code=status.HTTP_200_OK)
+def update_task(task_id: str, payload: TaskUpdateSchema):
+    for task in tasks:
+        if task.id == task_id:
+            if payload.title:
+              task.title = payload.title
+            if payload.completed:
+                task.completed = payload.completed
+            return task
+
+@app.delete("/tasks/{task_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_task(task_id: str):
+    for index, task in enumerate(tasks):
+        if task.id == task_id:
+            tasks.pop(index)
+            return
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail="Task not found",
+    )
 
 @app.get("/health")
 async def healthcheck():
