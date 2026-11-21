@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from uuid import uuid4
+from app.database.connection import engine
+from sqlalchemy import text
 
 app = FastAPI()
 
@@ -64,3 +66,10 @@ def delete_task(task_id: str):
 @app.get("/health")
 async def healthcheck():
     return {"PY": 'Alive!'}
+
+@app.get("/db-check")
+def db_check():
+    with engine.connect() as connection:
+        result = connection.execute(text("SELECT 1"))
+
+    return {"database": "connected", "result": result.scalar()}
