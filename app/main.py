@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from uuid import uuid4
 from app.database.connection import engine
 from sqlalchemy import text
+
+from app.schemas.task import TaskSchema, TaskCreateSchema, TaskUpdateSchema
 
 app = FastAPI()
 
@@ -15,18 +16,6 @@ app.add_middleware(
 )
 
 tasks = []
-
-class TaskSchema(BaseModel):
-    id: str
-    title: str
-    completed: bool
-
-class TaskCreateSchema(BaseModel):
-    title: str
-
-class TaskUpdateSchema(BaseModel):
-    title: str | None = None
-    completed: bool
 
 @app.get("/", status_code=status.HTTP_200_OK)
 def start_page():
