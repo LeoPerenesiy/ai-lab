@@ -2,9 +2,7 @@ import os
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
-
 from collections.abc import Generator
-
 from sqlalchemy.orm import Session
 
 

@@ -3,3 +3,4 @@ pydantic
 sqlalchemy
 psycopg[binary]
 alembic
+redis==6.4.0
