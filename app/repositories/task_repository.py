@@ -32,6 +32,11 @@ class TaskRepository:
 
         return task
 
-    def delete(self, task: Task) -> None:
+    def delete(self, task_id: int) -> None:
+        task = self.db.query(Task).filter(Task.id == task_id).first()
+
+        if task is None:
+            return
+
         self.db.delete(task)
         self.db.commit()
