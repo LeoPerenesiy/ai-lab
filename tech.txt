@@ -1,0 +1,111 @@
+
+
+Блок 1. Python Backend Engineering
+Приоритет №1
+Python — основной язык твоей новой специализации.
+Технология	Что нужно знать
+Python 3.11–3.14	Типизация, декораторы, генераторы, итераторы, контекстные менеджеры
+OOP	Наследование, композиция, SOLID, паттерны
+Asyncio	Async/await, event loop, concurrency
+Pydantic v2	Валидация, сериализация, Settings
+FastAPI	Dependency Injection, Middleware, Background Tasks
+SQLAlchemy 2.0	ORM, Core, AsyncSession, relationships
+Alembic	Миграции
+PostgreSQL	Индексы, транзакции, оптимизация запросов
+Redis	Cache, Pub/Sub, очереди, distributed locks
+Celery	Асинхронные фоновые задачи
+Pytest	Unit, Integration, Fixtures, Mocking
+
+Дополнительно:
+- httpx — асинхронные HTTP-запросы.
+- Tenacity — retry-механизмы.
+- Poetry или uv — управление зависимостями.
+- Ruff — линтер и форматирование.
+- Mypy или Pyright — статическая типизация.
+
+Блок 2. LLM Engineering и Generative AI
+Приоритет №1
+Это один из самых важных блоков для Applied AI Engineer.
+Технология	Что нужно освоить
+OpenAI API	Chat Completions, Responses API, Structured Outputs
+Anthropic API	Claude API, Tool Use
+Gemini API	Google Generative AI
+Hugging Face	Модели, токенизаторы, Model Hub
+Transformers	Архитектура и использование Transformer-моделей
+Embeddings	Векторные представления текста
+Function Calling	Вызов внешних инструментов моделями
+Streaming	Потоковая генерация
+Prompt Engineering	Системные промпты, контекст, few-shot
+Multimodal AI	Работа с текстом, изображениями, аудио и видео
+
+Блок 3. RAG и Vector Databases
+Приоритет №1
+RAG — Retrieval-Augmented Generation.
+
+Это архитектура, позволяющая AI работать с внешними знаниями: документами компании, PDF, базами данных, инструкциями и другими источниками.
+
+Технологии:
+Технология	Для чего
+LangChain	Интеграция LLM и компонентов AI
+LlamaIndex	Работа с документами и данными
+LangGraph	Сложные AI workflow и агенты
+Qdrant	Vector Database
+pgvector	Векторный поиск в PostgreSQL
+Pinecone	Managed Vector Database
+Weaviate	Vector Database
+Elasticsearch	Полнотекстовый и гибридный поиск
+FAISS	Локальный векторный поиск
+
+Что нужно понимать:
+1. Document ingestion.
+2. Text chunking.
+3. Embeddings generation.
+4. Vector similarity search.
+5. Metadata filtering.
+6. Hybrid search (BM25 + Vector Search).
+7. Reranking.
+8. Context retrieval.
+9. Retrieval evaluation.
+Мой совет: начни с Qdrant + LangChain + OpenAI Embeddings, а затем изучи pgvector и LlamaIndex.
+
+Не нужно одновременно осваивать все Vector Databases.
+
+Plan:
+1. Python Advanced + FastAPI
+Asyncio, Pydantic, SQLAlchemy, PostgreSQL, Redis, Pytest, Celery.
+Фундамент
+
+
+
+2. LLM Engineering
+OpenAI API, Anthropic, Gemini, Embeddings, Function Calling, Structured Outputs.
+
+
+
+3. RAG
+LangChain, LlamaIndex, Qdrant, pgvector, Hybrid Search, Reranking.
+
+
+
+4. AI Agents
+LangGraph, MCP, PydanticAI, Tool Calling, Agent Memory, Multi-Agent Systems.
+
+
+
+5. Machine Learning
+NumPy, Pandas, Scikit-learn, PyTorch, Hugging Face.
+
+
+
+6. MLOps
+Docker, AWS, Kubernetes, MLflow, CI/CD, Langfuse, Monitoring.
+
+
+
+7. Advanced AI
+Fine-tuning, LoRA, QLoRA, vLLM, Quantization, Model Optimization.
+
+
+
+8. Специализация
+Document AI, OCR, Computer Vision, Multimodal AI.
